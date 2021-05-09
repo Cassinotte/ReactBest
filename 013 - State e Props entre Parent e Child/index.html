@@ -12,23 +12,6 @@
 
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
-    <style>
-        .red{
-            background-color: red;
-            color: white;
-            padding: 10px;
-
-        }
-
-        .green {
-            background-color: green;
-            color: white;
-            padding: 10px;
-        }
-
-        
-    </style>
-
 </head>
 <body>
 
@@ -36,43 +19,54 @@
 
     <script type="text/babel">
 
-        class CompA extends React.Component {
+        // Identificacao
+        class Identificacao extends React.Component {
 
-            render() {
-                return(
-                    <div className="red">
-                        <p>Texto do CompA</p>
-                    </div>
-                )
+            constructor() {
+                super()
+                this.state = {
+                    nome: "João Ribeiro",
+                    idade: 46
+                }
             }
-
-        }
-
-        class CompB extends React.Component {
-
+               
             render() {
-                return(
-                    <div className="green">
-                        <p>Texto do CompB</p>
-                    </div>
-                )
-            }
-        }
 
-        class App extends React.Component {
+                this.state.nome = "Joaquim";
 
-            render() {
                 return(
                     <div>
-                        <CompA />
-                        <CompB />
+                       <Nome nome={this.state.nome} />
+                       <Idade idade={this.state.idade} /> 
                     </div>
                 )
             }
         }
 
-        const root = document.getElementById('root');
-        ReactDOM.render(<App />, root)
+        class Nome extends React.Component {
+
+            render() {
+                return(
+                    <p>Nome: {this.props.nome}</p>
+                )
+            }
+
+        }
+
+        class Idade extends React.Component {
+
+            render() {
+                return(
+                    <p>Idade: {this.props.idade}</p>
+                )
+            }
+
+        }
+
+        ReactDOM.render(
+           <Identificacao />,
+            document.getElementById('root')
+        );
 
 
     </script>
