@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Básico</title>
+    <!-- Adicionar o React. -->
+    <!-- Nota: ao fazer o deploy, substitua "development.js" por "production.min.js". -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+
+            constructor() {
+                super();
+
+                this.state = {
+                    tempoBom: true
+                };
+            }
+
+            render() {
+
+                return ( 
+                    this.state.tempoBom && <p>O tempo está bom</p> 
+                )
+
+                // método ternario (condicao ternária)
+/*              return (
+                    this.state.tempoBom ?  
+                    <p>O Tempo está bom.</p> : 
+                    <p>O Tempo está ruim.</p>
+                ) */
+
+
+                //if condicao ? sim : nao
+                /*let texto = ''
+
+                if(this.state.tempoBom) {
+                    texto = <p>O Tempo está bom.</p>
+                } else {
+                    texto = <p>O Tempo está ruim.</p>
+                }
+
+                return texto; */
+
+
+                // if else
+                /*if(this.state.tempoBom) {
+                    return <p>O Tempo está bom.</p>
+                }
+                else {
+                    return <p>O Tempo está ruim.</p>
+                } */
+
+
+
+            }
+
+        }
+
+        //-----------------------------
+        ReactDOM.render(
+           <App />,
+            document.getElementById('root')
+        );
+
+
+    </script>
+
+</body>
+</html>
