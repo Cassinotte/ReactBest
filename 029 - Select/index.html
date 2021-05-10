@@ -19,28 +19,31 @@
 
     <script type="text/babel">
 
-
+        //parent
         class App extends React.Component {
 
-            render() 
-            {
-                let estilo = {
-                    color: "red",
-                    fontSize: '2em'
-                };
+            constructor( ) {
+                super()
 
-                let estilo2 = {
-                    border: '1px solid red'
+                this.state = {
+                    item: "item3"
                 }
+            }
 
+            alterarItem = event => this.setState({item: event.target.value});
+
+            render(){
                 return(
-
                     <div>
-                        <p style={estilo2}>Texto com estilo!</p>
+                        <select value={this.state.item} onChange={this.alterarItem}>
+                            <option value="item1">Item 1</option>
+                            <option value="item2">Item 2</option>
+                            <option value="item3">Item 3</option>
+                        </select>
+                        <p>Item selecionado: {this.state.item}</p>
                     </div>
                 )
             }
-
         }
 
         //-----------------------------

@@ -19,28 +19,41 @@
 
     <script type="text/babel">
 
-
+        //parent
         class App extends React.Component {
 
-            render() 
-            {
-                let estilo = {
-                    color: "red",
-                    fontSize: '2em'
-                };
-
-                let estilo2 = {
-                    border: '1px solid red'
+            constructor( ) {
+                super()
+                this.state = {
+                    nome: "Joao"
                 }
 
-                return(
-
-                    <div>
-                        <p style={estilo2}>Texto com estilo!</p>
-                    </div>
-                )
+                console.log("constructor");
             }
 
+            componentDidMount() {
+                console.log("Montado");
+            }
+
+            alterar = () => {
+                console.log("Alterar");
+
+                this.setState({nome: "Joaquim"})
+            }
+
+            render() {
+
+                console.log("render");
+
+                return (
+                    <div>
+                        Olá {this.state.nome}
+                        <div>  
+                            <button onClick={this.alterar}>Alterar</button>
+                        </div>
+                    </div>
+                );
+            }
         }
 
         //-----------------------------

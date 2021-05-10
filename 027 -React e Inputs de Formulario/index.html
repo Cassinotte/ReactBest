@@ -19,28 +19,33 @@
 
     <script type="text/babel">
 
-
+        //parent
         class App extends React.Component {
 
-            render() 
-            {
-                let estilo = {
-                    color: "red",
-                    fontSize: '2em'
-                };
+            constructor( ) {
+                super()
 
-                let estilo2 = {
-                    border: '1px solid red'
+                this.state = {
+                    nome: "Joao"
                 }
+            }
 
+            alterarNome = (event) => {
+                this.setState({nome: event.target.value});
+            }
+
+            render(){
                 return(
-
                     <div>
-                        <p style={estilo2}>Texto com estilo!</p>
+                        <input 
+                        type="text" 
+                        onChange={this.alterarNome}
+                        value={this.state.nome} />
+
+                        <p>Valor: {this.state.nome} </p>
                     </div>
                 )
             }
-
         }
 
         //-----------------------------
